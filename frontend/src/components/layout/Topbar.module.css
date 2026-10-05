@@ -1,0 +1,132 @@
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  min-height: 68px;
+  padding: var(--space-3) var(--space-6);
+  /* Sólida (con un toque translúcido) para que se distinga del fondo decorativo */
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--color-border);
+  box-shadow: 0 2px 14px hsl(var(--hue) 30% 40% / 0.05);
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.today {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--color-neutral-soft);
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.today svg {
+  width: 17px;
+  height: 17px;
+  color: var(--color-text-muted);
+}
+
+.capitalize::first-letter {
+  text-transform: uppercase;
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.iconButton {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  background: var(--color-surface);
+  color: var(--color-text-muted);
+  transition: color 0.15s, border-color 0.15s, background-color 0.15s;
+}
+
+.iconButton:hover {
+  color: var(--color-text);
+  border-color: var(--color-primary);
+  background: var(--color-neutral-soft);
+}
+
+.iconButton svg {
+  width: 18px;
+  height: 18px;
+}
+
+.divider {
+  width: 1px;
+  height: 28px;
+  margin: 0 var(--space-2);
+  background: var(--color-border);
+}
+
+.user {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 3px 10px 3px 3px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: background-color 0.15s;
+}
+
+.user:hover {
+  background: var(--color-neutral-soft);
+}
+
+.userName {
+  max-width: 160px;
+  font-weight: 700;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.chevron {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+}
+
+.mobileOnly {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .topbar {
+    min-height: 60px;
+    padding: var(--space-2) var(--space-4);
+  }
+
+  .desktopOnly {
+    display: none;
+  }
+
+  .mobileOnly {
+    display: flex;
+  }
+
+  .user {
+    padding: 0;
+  }
+}

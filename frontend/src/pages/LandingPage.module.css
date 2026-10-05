@@ -1,0 +1,214 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-7);
+}
+
+/* Hero */
+.hero {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  align-items: center;
+  gap: var(--space-6);
+  padding-top: var(--space-4);
+}
+
+.heroText {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  align-self: flex-start;
+  padding: 6px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--accent-1);
+  font-weight: 800;
+}
+
+.kicker svg {
+  width: 22px;
+  height: 22px;
+}
+
+.title {
+  font-size: clamp(2rem, 5vw, 2.9rem);
+}
+
+.lead {
+  font-size: 1.15rem;
+  color: var(--color-text-muted);
+  max-width: 34ch;
+}
+
+.ctas {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-2);
+}
+
+/* Tarjeta de ejemplo */
+.preview {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: var(--space-6) var(--space-4);
+}
+
+.preview::before,
+.preview::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  z-index: -1;
+}
+
+.preview::before {
+  width: 220px;
+  height: 220px;
+  background: var(--color-primary-soft);
+  top: 0;
+  right: 10%;
+}
+
+.preview::after {
+  width: 150px;
+  height: 150px;
+  background: var(--accent-4);
+  bottom: 0;
+  left: 8%;
+}
+
+.previewCard {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: var(--space-3) var(--space-4);
+  width: 100%;
+  max-width: 300px;
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-hover);
+  transform: rotate(-2deg);
+}
+
+.previewDate {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: var(--radius-md);
+  background: var(--accent-2);
+  line-height: 1.1;
+}
+
+.previewDate strong {
+  font-size: 1.4rem;
+}
+
+.previewDate span {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-muted);
+}
+
+.previewTitle {
+  font-weight: 800;
+  margin-bottom: var(--space-1);
+}
+
+.previewMeta,
+.previewGoing {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.previewGoing {
+  grid-column: 1 / -1;
+  padding-top: var(--space-3);
+  border-top: 1px dashed var(--color-border);
+  font-weight: 700;
+  color: var(--color-text);
+}
+
+.previewMeta svg,
+.previewGoing svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* Cómo funciona */
+.how {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.howTitle {
+  font-size: 1.6rem;
+  text-align: center;
+}
+
+.steps {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--space-4);
+}
+
+.step {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding: var(--space-5);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  box-shadow: var(--shadow-soft);
+}
+
+.step h3 {
+  font-size: 1.1rem;
+}
+
+.step p {
+  color: var(--color-text-muted);
+}
+
+.stepIcon {
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: var(--radius-md);
+  margin-bottom: var(--space-1);
+}
+
+.stepIcon svg {
+  width: 22px;
+  height: 22px;
+}
+
+@media (max-width: 760px) {
+  .hero {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+
+  .steps {
+    grid-template-columns: 1fr;
+  }
+}

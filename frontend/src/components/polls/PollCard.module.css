@@ -1,0 +1,116 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: var(--space-3);
+}
+
+.question {
+  font-size: 1.05rem;
+  overflow-wrap: anywhere;
+}
+
+.meta {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.delete {
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.delete:hover {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+.delete svg {
+  width: 17px;
+  height: 17px;
+}
+
+.options {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.option {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  width: 100%;
+  padding: 10px 14px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  text-align: left;
+  font-weight: 600;
+  cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.15s;
+}
+
+.option:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.option:disabled {
+  cursor: default;
+}
+
+.mine {
+  border-color: var(--color-primary);
+}
+
+/* Barra de porcentaje detrás del texto */
+.bar {
+  position: absolute;
+  inset: 0 auto 0 0;
+  background: var(--color-primary-soft);
+  transition: width 0.3s ease;
+}
+
+.leading {
+  background: color-mix(in srgb, var(--color-primary) 45%, var(--color-primary-soft));
+}
+
+.text,
+.count {
+  position: relative; /* por encima de la barra */
+}
+
+.text {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  overflow-wrap: anywhere;
+}
+
+.text svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.count {
+  font-weight: 800;
+}

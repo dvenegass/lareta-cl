@@ -1,0 +1,289 @@
+.chat {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+/* Al arrastrar una imagen sobre el chat */
+.dragging {
+  outline: 3px dashed var(--color-primary);
+  outline-offset: -3px;
+}
+
+.dropHint {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  border-radius: var(--radius-lg);
+  background: color-mix(in srgb, var(--color-surface) 88%, transparent);
+  font-weight: 700;
+  pointer-events: none; /* no interrumpe el arrastre */
+}
+
+.dropHint svg {
+  width: 32px;
+  height: 32px;
+  color: var(--color-primary-strong);
+}
+
+/* ---------- Cabecera ---------- */
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 1.15rem;
+}
+
+.title svg {
+  width: 20px;
+  height: 20px;
+  color: var(--color-primary-strong);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--color-text-muted);
+}
+
+.online .dot {
+  background: var(--color-success-border);
+  box-shadow: 0 0 0 3px var(--color-success-bg);
+}
+
+.offline {
+  color: var(--color-danger-text);
+}
+
+.offline .dot {
+  background: var(--color-danger-border);
+}
+
+/* ---------- Mensajes ---------- */
+
+.list {
+  display: flex;
+  flex-direction: column;
+  /* Ocupa el alto disponible de la pantalla, dentro de un mínimo y un máximo */
+  height: clamp(360px, calc(100vh - 420px), 640px);
+  overflow-y: auto;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-neutral-soft);
+}
+
+.empty {
+  margin: auto;
+  color: var(--color-text-muted);
+  font-size: 0.95rem;
+  text-align: center;
+}
+
+.older {
+  align-self: center;
+  margin-bottom: var(--space-2);
+  padding: 6px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.older:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+/* Separador de día: "Hoy", "Ayer", "sábado, 25 oct" */
+.day {
+  width: fit-content;
+  margin: var(--space-3) auto var(--space-2);
+  padding: 2px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-size: 0.75rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+}
+
+.row {
+  display: flex;
+  align-items: flex-end;
+  gap: var(--space-2);
+  margin-top: 3px;
+}
+
+.groupStart {
+  margin-top: var(--space-3);
+}
+
+/* Mis mensajes, a la derecha */
+.mine {
+  flex-direction: row-reverse;
+}
+
+.avatarSlot {
+  width: 30px;
+  flex-shrink: 0;
+  align-self: flex-start;
+}
+
+.bubble {
+  max-width: min(75%, 520px);
+  padding: 6px 12px 4px;
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  box-shadow: 0 1px 2px hsl(var(--hue) 20% 30% / 0.06);
+}
+
+.groupStart .bubble {
+  border-top-left-radius: 4px;
+}
+
+.mine .bubble {
+  background: var(--color-primary);
+  color: var(--color-primary-text);
+  border-top-left-radius: var(--radius-md);
+}
+
+.mine.groupStart .bubble {
+  border-top-right-radius: 4px;
+}
+
+.author {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--color-primary-strong);
+  text-decoration: none;
+}
+
+/* Burbuja con imagen o GIF: menos relleno para que la imagen luzca */
+.withMedia {
+  padding: 4px 4px 3px;
+}
+
+.withMedia .author,
+.withMedia .body,
+.withMedia .time {
+  padding-inline: 8px;
+}
+
+.withMedia .author {
+  padding-top: 2px;
+}
+
+/* Se ajusta al tamaño de la imagen (sin franjas vacías al lado) */
+.media {
+  display: block;
+  width: fit-content;
+  margin: 2px 0;
+  border-radius: calc(var(--radius-md) - 4px);
+  overflow: hidden;
+  background: var(--color-neutral-soft);
+}
+
+/* El tamaño exacto lo pone el componente (fitMedia); esto es el respaldo si faltan las dimensiones */
+.media img {
+  display: block;
+  max-width: 260px;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+.body {
+  font-size: 0.95rem;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+
+.time {
+  display: block;
+  margin-top: 1px;
+  text-align: right;
+  font-size: 0.7rem;
+  opacity: 0.65;
+}
+
+/* Borrar: aparece al pasar el mouse por el mensaje (siempre visible en pantallas táctiles) */
+.delete {
+  display: grid;
+  place-items: center;
+  align-self: center;
+  padding: 4px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+  opacity: 0;
+}
+
+.row:hover .delete,
+.delete:focus-visible {
+  opacity: 0.7;
+}
+
+.delete:hover {
+  opacity: 1;
+  color: var(--color-danger-text);
+}
+
+@media (hover: none) {
+  .delete {
+    opacity: 0.5;
+  }
+}
+
+.delete svg {
+  width: 14px;
+  height: 14px;
+}
+
+/* ---------- Escribiendo ---------- */
+
+.typing {
+  min-height: 1.2em; /* reserva el espacio para que nada salte */
+  margin-top: calc(var(--space-2) * -1);
+  font-size: 0.8rem;
+  font-style: italic;
+  color: var(--color-text-muted);
+}
+
+.error {
+  color: var(--color-danger-text);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 480px) {
+  .list {
+    height: 60vh;
+  }
+}

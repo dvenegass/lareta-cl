@@ -1,0 +1,40 @@
+/* Mismo tamaño que los botones de la app; el verde de WhatsApp solo en el borde e icono */
+.whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  padding: 10px 20px;
+  border: 2px solid hsl(142 50% 75%);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  color: var(--color-text);
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: background-color 0.15s, transform 0.1s;
+}
+
+.whatsapp:hover {
+  background: hsl(142 60% 95%);
+  transform: translateY(-1px);
+}
+
+.whatsapp svg {
+  width: 18px;
+  height: 18px;
+  color: hsl(142 70% 36%);
+}
+
+:global([data-theme="dark"]) .whatsapp {
+  border-color: hsl(142 35% 35%);
+}
+
+:global([data-theme="dark"]) .whatsapp:hover {
+  background: hsl(142 30% 18%);
+}
+
+:global([data-theme="dark"]) .whatsapp svg {
+  color: hsl(142 55% 60%);
+}

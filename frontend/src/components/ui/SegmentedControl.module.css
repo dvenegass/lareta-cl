@@ -1,0 +1,47 @@
+.group {
+  display: grid;
+  gap: var(--space-1);
+  padding: var(--space-1);
+  border-radius: var(--radius-pill);
+  background: var(--color-neutral-soft);
+}
+
+.option {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 10px 8px;
+  border: none;
+  border-radius: var(--radius-pill);
+  background: transparent;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  line-height: 1.2;
+  cursor: pointer;
+  transition: background-color 0.15s, color 0.15s;
+}
+
+.option svg {
+  width: 17px;
+  height: 17px;
+  flex-shrink: 0;
+}
+
+.option:hover {
+  color: var(--color-text);
+}
+
+.option[aria-checked="true"] {
+  background: var(--color-surface);
+  color: var(--color-text);
+  box-shadow: var(--shadow-soft);
+}
+
+@media (max-width: 480px) {
+  .option {
+    flex-direction: column;
+    gap: 2px;
+    font-size: 0.82rem;
+  }
+}

@@ -1,0 +1,140 @@
+/* Panel flotante sobre la caja de texto del chat */
+.panel {
+  position: absolute;
+  bottom: calc(100% + var(--space-2));
+  right: 0;
+  z-index: 20;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  width: min(380px, calc(100vw - 32px));
+  height: 420px;
+  padding: var(--space-3);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-hover);
+}
+
+.searchRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  flex: 1;
+  padding: 8px 12px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-neutral-soft);
+}
+
+.search:focus-within {
+  border-color: var(--color-primary);
+}
+
+.search svg {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.search input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  outline: none;
+}
+
+.close {
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.close:hover {
+  background: var(--color-neutral-soft);
+}
+
+.close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.results {
+  flex: 1;
+  overflow-y: auto;
+}
+
+/* Mosaico tipo "muro": columnas de alto libre, cada GIF con su proporción */
+.grid {
+  columns: 2;
+  column-gap: 6px;
+}
+
+.gif {
+  display: block;
+  width: 100%;
+  margin-bottom: 6px;
+  padding: 0;
+  border: none;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  background: var(--color-neutral-soft);
+  cursor: pointer;
+  break-inside: avoid;
+}
+
+.gif img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.gif:hover,
+.gif:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: -3px;
+}
+
+.message {
+  padding: var(--space-4);
+  text-align: center;
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.more {
+  display: block;
+  margin: var(--space-2) auto;
+  padding: 6px 14px;
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-pill);
+  background: var(--color-surface);
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.credit {
+  align-self: flex-end;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  text-decoration: none;
+}
+
+.credit:hover {
+  color: var(--color-text);
+}

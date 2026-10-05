@@ -1,0 +1,24 @@
+.stack {
+  display: inline-flex;
+  align-items: center;
+}
+
+.item + .item,
+.item + .extra {
+  margin-left: -8px;
+}
+
+.item {
+  display: flex;
+  border-radius: 50%;
+}
+
+.extra {
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 2px solid var(--color-surface);
+  background: var(--color-neutral-soft);
+  font-size: 0.72rem;
+  font-weight: 800;
+}

@@ -1,0 +1,41 @@
+.logo {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  text-decoration: none;
+}
+
+.mark {
+  flex-shrink: 0;
+  display: block;
+}
+
+.markBg {
+  fill: var(--color-primary);
+}
+
+.markStroke {
+  stroke: var(--color-primary-text);
+}
+
+.markDot {
+  fill: var(--color-primary-text);
+}
+
+.wordmark {
+  font-size: 1.35rem;
+  font-weight: 800;
+  letter-spacing: -0.035em;
+  line-height: 1;
+}
+
+.tld {
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+@media (max-width: 520px) {
+  .compactText {
+    display: none;
+  }
+}

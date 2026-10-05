@@ -1,0 +1,104 @@
+.strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  padding: var(--space-5) 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: 0 var(--space-5);
+  min-width: 0;
+}
+
+.stat + .stat {
+  border-left: 1px solid var(--color-border);
+}
+
+.labelRow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+  border-radius: 10px;
+  background: var(--color-neutral-soft);
+  color: var(--color-primary-strong);
+}
+
+.icon svg {
+  width: 16px;
+  height: 16px;
+}
+
+.valueRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.value {
+  font-size: 2rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1;
+}
+
+.hint {
+  padding: 3px 9px;
+  border-radius: var(--radius-pill);
+  font-size: 0.75rem;
+  font-weight: 700;
+  white-space: nowrap;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.neutral {
+  background: var(--color-neutral-soft);
+  color: var(--color-text-muted);
+}
+
+.positive {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.attention {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+/* Con barra lateral, 4 columnas necesitan ~1240px; si no, 2×2. */
+@media (max-width: 1240px) and (min-width: 901px), (max-width: 760px) {
+  .strip {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    row-gap: var(--space-5);
+  }
+
+  .stat:nth-child(3) {
+    border-left: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .stat {
+    padding: 0 var(--space-4);
+  }
+
+  .value {
+    font-size: 1.6rem;
+  }
+}

@@ -1,0 +1,16 @@
+.layer {
+  position: relative; /* por encima del fondo decorativo */
+  z-index: 1;
+}
+
+.main {
+  max-width: var(--content-width);
+  margin: 0 auto;
+  padding: var(--space-6) var(--space-4) var(--space-7);
+}
+
+@media (max-width: 480px) {
+  .main {
+    padding-top: var(--space-5);
+  }
+}

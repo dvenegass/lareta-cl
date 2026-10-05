@@ -1,0 +1,54 @@
+.card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: var(--space-4);
+}
+
+.result {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  min-width: 0;
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: var(--radius-md);
+  background: var(--color-neutral-soft);
+  color: var(--color-primary-strong);
+}
+
+.icon svg {
+  width: 28px;
+  height: 28px;
+}
+
+.spinning {
+  animation: wobble 0.16s ease-in-out infinite alternate;
+}
+
+.label {
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+@keyframes wobble {
+  from {
+    transform: rotate(-8deg) scale(0.95);
+  }
+  to {
+    transform: rotate(8deg) scale(1.05);
+  }
+}

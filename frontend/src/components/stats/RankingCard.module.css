@@ -1,0 +1,112 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.title {
+  font-size: 1rem;
+}
+
+.unit {
+  font-size: 0.8rem;
+  color: var(--color-text-muted);
+}
+
+.icon {
+  display: grid;
+  place-items: center;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+  border-radius: 12px;
+  background: var(--color-neutral-soft);
+  color: var(--color-primary-strong);
+}
+
+.icon svg {
+  width: 20px;
+  height: 20px;
+}
+
+.empty {
+  color: var(--color-text-muted);
+  font-size: 0.9rem;
+}
+
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.entry {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: 4px 8px;
+  border-radius: var(--radius-sm);
+  min-width: 0;
+}
+
+.me {
+  background: var(--color-primary-soft);
+}
+
+/* Insignia de puesto: oro / plata / bronce */
+.position {
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  border-radius: 50%;
+  font-size: 0.8rem;
+  font-weight: 800;
+  color: var(--medal-text);
+}
+
+.position svg {
+  width: 14px;
+  height: 14px;
+}
+
+.gold {
+  background: var(--medal-gold);
+}
+
+.silver {
+  background: var(--medal-silver);
+}
+
+.bronze {
+  background: var(--medal-bronze);
+}
+
+.userLink {
+  gap: var(--space-2);
+  flex: 1;
+}
+
+.name {
+  flex: 1;
+  min-width: 0;
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.value {
+  font-weight: 800;
+  white-space: nowrap;
+}

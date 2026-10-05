@@ -1,0 +1,222 @@
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.title {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: 1.15rem;
+}
+
+.title svg {
+  width: 20px;
+  height: 20px;
+}
+
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+/* Cifras destacadas */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-neutral-soft);
+}
+
+.statValue {
+  font-size: 1.35rem;
+  font-weight: 800;
+}
+
+.statLabel {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.subheading {
+  font-size: 0.95rem;
+  margin-bottom: var(--space-2);
+}
+
+.hint {
+  font-size: 0.9rem;
+  color: var(--color-text-muted);
+}
+
+.error {
+  color: var(--color-danger-text);
+  font-size: 0.9rem;
+}
+
+/* Listas */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2) var(--space-3);
+  width: 100%;
+  min-width: 0;
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-border);
+  background: var(--color-surface);
+  text-align: left;
+}
+
+.rowButton {
+  cursor: pointer;
+  font-weight: inherit;
+}
+
+.rowButton:hover:not(:disabled) {
+  border-color: var(--color-primary);
+}
+
+.rowButton:disabled {
+  cursor: wait;
+}
+
+.name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.paid,
+.pending {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  padding: 2px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.paid svg,
+.pending svg {
+  width: 14px;
+  height: 14px;
+}
+
+.paid {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.pending {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.settlement {
+  flex-wrap: wrap;
+}
+
+.highlight {
+  border-color: var(--color-primary);
+  background: var(--color-primary-soft);
+}
+
+.arrow {
+  width: 16px;
+  height: 16px;
+  color: var(--color-text-muted);
+  flex-shrink: 0;
+}
+
+.amount {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.expenseText {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.expenseText span {
+  font-size: 0.85rem;
+  color: var(--color-text-muted);
+}
+
+.iconButton {
+  display: grid;
+  place-items: center;
+  padding: 6px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.iconButton:hover {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+.iconButton svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Formulario de gasto */
+.expenseForm {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: var(--space-2);
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  background: var(--color-neutral-soft);
+}
+
+.input {
+  min-width: 0;
+  padding: 10px 12px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.input:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.input::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+@media (max-width: 480px) {
+  .stats,
+  .expenseForm {
+    grid-template-columns: 1fr;
+  }
+}

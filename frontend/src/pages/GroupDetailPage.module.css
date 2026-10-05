@@ -1,0 +1,120 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.back {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  align-self: flex-start;
+  color: var(--color-text-muted);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.back:hover {
+  color: var(--color-text);
+}
+
+.back svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* Foto a la izquierda; nombre, descripción y acciones a la derecha */
+.header {
+  display: flex;
+  align-items: flex-start;
+  gap: var(--space-5);
+}
+
+.headerBody {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  flex: 1;
+  min-width: 0;
+  padding-top: var(--space-2);
+}
+
+@media (max-width: 560px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .headerBody {
+    align-items: center;
+    width: 100%;
+  }
+
+  .headerBody .actions {
+    justify-content: center;
+  }
+}
+
+.title {
+  font-size: clamp(1.6rem, 4vw, 2.1rem);
+  overflow-wrap: anywhere;
+}
+
+.description {
+  margin-top: var(--space-1);
+  color: var(--color-text-muted);
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+
+.error {
+  color: var(--color-danger-text);
+  font-size: 0.9rem;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1.7fr) minmax(280px, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.chat {
+  min-width: 0;
+}
+
+/* Columna lateral: próximas juntas + miembros */
+.aside {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+/* Móvil: una columna. Primero las juntas, luego el chat y al final los miembros. */
+@media (max-width: 900px) {
+  .layout {
+    grid-template-columns: 1fr;
+  }
+
+  .aside {
+    display: contents; /* sus tarjetas pasan a ser parte de la columna única */
+  }
+
+  .events {
+    order: 1;
+  }
+
+  .chat {
+    order: 2;
+  }
+
+  .members {
+    order: 3;
+  }
+}

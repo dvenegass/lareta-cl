@@ -1,0 +1,65 @@
+.page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+/* El encabezado ya trae su propio margen inferior */
+.page > :first-child {
+  margin-bottom: var(--space-2);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.65fr) minmax(0, 1fr);
+  gap: var(--space-4);
+  align-items: start;
+}
+
+.column {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  min-width: 0;
+}
+
+.next:empty {
+  display: none;
+}
+
+@media (max-width: 900px) {
+  .headerCta {
+    display: none;
+  }
+}
+
+/*
+ * En pantallas angostas va todo en una columna, en este orden:
+ * próxima junta → agenda → lista → "¿Qué hacemos?".
+ */
+@media (max-width: 1000px) {
+  .grid {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .column {
+    display: contents;
+  }
+
+  .next {
+    order: 1;
+  }
+
+  .agenda {
+    order: 2;
+  }
+
+  .list {
+    order: 3;
+  }
+
+  .fun {
+    order: 4;
+  }
+}

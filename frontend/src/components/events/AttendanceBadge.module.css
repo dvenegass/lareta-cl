@@ -1,0 +1,28 @@
+.badge {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: var(--radius-pill);
+  font-size: 0.8rem;
+  font-weight: 700;
+}
+
+.going {
+  background: var(--color-success-bg);
+  color: var(--color-success-text);
+}
+
+.not_going {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+.none {
+  background: var(--color-warning-bg);
+  color: var(--color-warning-text);
+}
+
+.cancelled {
+  background: var(--color-neutral-soft);
+  color: var(--color-text-muted);
+  text-decoration: line-through;
+}

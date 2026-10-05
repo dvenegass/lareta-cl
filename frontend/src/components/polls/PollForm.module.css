@@ -1,0 +1,72 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  background: var(--color-neutral-soft);
+}
+
+.options {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  align-items: flex-start;
+}
+
+.label {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+.optionRow {
+  display: flex;
+  gap: var(--space-2);
+  width: 100%;
+}
+
+.optionInput {
+  flex: 1;
+  min-width: 0;
+  padding: 10px 14px;
+  border: 2px solid var(--color-border);
+  border-radius: var(--radius-sm);
+  background: var(--color-surface);
+}
+
+.optionInput:focus {
+  outline: none;
+  border-color: var(--color-primary);
+}
+
+.optionInput::placeholder {
+  color: var(--color-text-muted);
+  opacity: 0.6;
+}
+
+.remove {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  border: none;
+  border-radius: var(--radius-sm);
+  background: transparent;
+  color: var(--color-text-muted);
+  cursor: pointer;
+}
+
+.remove:hover {
+  background: var(--color-danger-bg);
+  color: var(--color-danger-text);
+}
+
+.remove svg {
+  width: 18px;
+  height: 18px;
+}
+
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: var(--space-2);
+}

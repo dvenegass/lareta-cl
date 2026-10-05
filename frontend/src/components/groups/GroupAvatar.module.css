@@ -1,0 +1,12 @@
+.avatar {
+  display: block;
+  flex-shrink: 0;
+  object-fit: cover;
+}
+
+.placeholder {
+  display: grid;
+  place-items: center;
+  background: var(--color-neutral-soft);
+  color: var(--color-primary-strong);
+}

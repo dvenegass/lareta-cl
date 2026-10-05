@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400..800&display=swap"
+      rel="stylesheet"
+    />
+    <title>reta.cl · Juntas con amigos</title>
+    <meta name="description" content="Organiza juntas con tus amigos: crea la reta, comparte el enlace y mira quién va." />
+    <script>
+      // Aplica el último tema guardado antes de que cargue React, para que la
+      // página no parpadee con los colores por defecto. Ver src/theme/theme.ts.
+      try {
+        var theme = JSON.parse(localStorage.getItem("reta-theme") || "null");
+        var root = document.documentElement;
+        var mode = theme ? theme.mode : "system";
+        if (theme) {
+          root.style.setProperty("--hue", theme.hue);
+          root.style.setProperty("--chroma", theme.chroma);
+        }
+        var prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        root.dataset.theme = mode === "dark" || (mode === "system" && prefersDark) ? "dark" : "light";
+        root.dataset.decor = theme && theme.decor === false ? "off" : "on";
+      } catch (e) {}
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

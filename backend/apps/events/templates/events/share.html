@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{{ title }} · reta.cl</title>
+    <meta name="description" content="{{ description }}" />
+
+    <!-- Vista previa al compartir (WhatsApp, Telegram, Discord, Facebook...) -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="reta.cl" />
+    <meta property="og:locale" content="es_CL" />
+    <meta property="og:title" content="{{ title }}" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:image" content="{{ image_url }}" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:url" content="{{ share_url }}" />
+    <meta name="twitter:card" content="summary_large_image" />
+
+    <!-- Las personas no se quedan aquí: van directo a la junta -->
+    <meta http-equiv="refresh" content="0; url={{ app_url }}" />
+    <link rel="canonical" href="{{ app_url }}" />
+  </head>
+  <body style="font-family: system-ui, sans-serif; padding: 2rem">
+    <p>Abriendo la junta… <a href="{{ app_url }}">Ir a «{{ title }}»</a></p>
+  </body>
+</html>

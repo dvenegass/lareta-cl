@@ -1,0 +1,122 @@
+/*
+ * Tokens de diseño.
+ *
+ * Toda la paleta se genera a partir de dos variables:
+ *   --hue     tono del color elegido por el usuario (0–360)
+ *   --chroma  cuánto color lleva la interfaz (0 = gris, 1 = pleno)
+ * El JS (src/theme) solo cambia esas dos variables y `data-theme`.
+ *
+ * Los colores con significado (éxito, peligro, aviso) tienen tono fijo para
+ * que "Vas" siempre sea verde y "No vas" siempre rosa, elija lo que elija el usuario.
+ */
+
+:root {
+  --hue: 255;
+  --chroma: 1;
+
+  /* Forma */
+  --radius-sm: 10px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-pill: 999px;
+
+  /* Espaciado */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 24px;
+  --space-6: 32px;
+  --space-7: 48px;
+
+  --font-family: "DM Sans", system-ui, -apple-system, "Segoe UI", sans-serif;  --content-width: 960px;
+}
+
+/* ---------- Día ---------- */
+:root,
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  /* Base casi neutra: el color del tema se usa con moderación */
+  --color-bg: hsl(var(--hue) calc(22% * var(--chroma)) 98.2%);
+  --color-surface: #ffffff;
+  --color-text: hsl(var(--hue) calc(20% * var(--chroma)) 20%);
+  --color-text-muted: hsl(var(--hue) calc(8% * var(--chroma)) 46%);
+  --color-border: hsl(var(--hue) calc(16% * var(--chroma)) 91.5%);
+  --color-focus: hsl(var(--hue) calc(55% * var(--chroma)) 78%);
+  /* Fondo de apoyo neutro (cajas de iconos, etiquetas, pestañas) */
+  --color-neutral-soft: hsl(var(--hue) calc(14% * var(--chroma)) 95.5%);
+
+  --color-primary: hsl(var(--hue) calc(58% * var(--chroma)) 80%);
+  --color-primary-hover: hsl(var(--hue) calc(52% * var(--chroma)) 74%);
+  --color-primary-text: hsl(var(--hue) calc(40% * var(--chroma)) 20%);
+  --color-primary-soft: hsl(var(--hue) calc(50% * var(--chroma)) 95.5%);
+  /* Versión oscura del color principal para iconos e indicadores pequeños */
+  --color-primary-strong: hsl(var(--hue) calc(45% * var(--chroma)) 46%);
+
+  /* Acentos decorativos: tonos vecinos y complementario del color base */
+  --accent-1: hsl(var(--hue) calc(50% * var(--chroma)) 91%);
+  --accent-2: hsl(calc(var(--hue) + 40) calc(50% * var(--chroma)) 91%);
+  --accent-3: hsl(calc(var(--hue) - 40) calc(50% * var(--chroma)) 91%);
+  --accent-4: hsl(calc(var(--hue) + 180) calc(40% * var(--chroma)) 91%);
+  --accent-5: hsl(calc(var(--hue) + 120) calc(40% * var(--chroma)) 91%);
+
+  --color-success-bg: hsl(150 40% 93%);
+  --color-success-border: hsl(150 35% 74%);
+  --color-success-text: hsl(150 40% 30%);
+  --color-danger-bg: hsl(345 75% 95%);
+  --color-danger-border: hsl(345 60% 83%);
+  --color-danger-text: hsl(345 50% 45%);
+  --color-warning-bg: hsl(45 75% 92%);
+  --color-warning-text: hsl(40 65% 30%);
+
+  --medal-gold: hsl(45 95% 72%);
+  --medal-silver: hsl(220 15% 84%);
+  --medal-bronze: hsl(25 65% 76%);
+  --medal-text: hsl(30 40% 18%);
+
+  --shadow-soft: 0 2px 12px hsl(var(--hue) 20% 30% / 0.06);
+  --shadow-hover: 0 8px 24px hsl(var(--hue) 20% 30% / 0.1);
+}
+
+/* ---------- Noche ---------- */
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: hsl(var(--hue) calc(18% * var(--chroma)) 11%);
+  --color-surface: hsl(var(--hue) calc(16% * var(--chroma)) 15%);
+  --color-text: hsl(var(--hue) calc(30% * var(--chroma)) 93%);
+  --color-text-muted: hsl(var(--hue) calc(12% * var(--chroma)) 68%);
+  --color-border: hsl(var(--hue) calc(14% * var(--chroma)) 24%);
+  --color-focus: hsl(var(--hue) calc(60% * var(--chroma)) 60%);
+  --color-neutral-soft: hsl(var(--hue) calc(12% * var(--chroma)) 19%);
+
+  --color-primary: hsl(var(--hue) calc(55% * var(--chroma)) 76%);
+  --color-primary-hover: hsl(var(--hue) calc(60% * var(--chroma)) 82%);
+  --color-primary-text: hsl(var(--hue) calc(40% * var(--chroma)) 14%);
+  --color-primary-soft: hsl(var(--hue) calc(28% * var(--chroma)) 22%);
+  --color-primary-strong: hsl(var(--hue) calc(60% * var(--chroma)) 76%);
+
+  --accent-1: hsl(var(--hue) calc(35% * var(--chroma)) 27%);
+  --accent-2: hsl(calc(var(--hue) + 40) calc(35% * var(--chroma)) 27%);
+  --accent-3: hsl(calc(var(--hue) - 40) calc(35% * var(--chroma)) 27%);
+  --accent-4: hsl(calc(var(--hue) + 180) calc(30% * var(--chroma)) 27%);
+  --accent-5: hsl(calc(var(--hue) + 120) calc(30% * var(--chroma)) 27%);
+
+  --color-success-bg: hsl(150 30% 20%);
+  --color-success-border: hsl(150 35% 38%);
+  --color-success-text: hsl(150 55% 75%);
+  --color-danger-bg: hsl(345 35% 22%);
+  --color-danger-border: hsl(345 40% 42%);
+  --color-danger-text: hsl(345 85% 82%);
+  --color-warning-bg: hsl(45 35% 20%);
+  --color-warning-text: hsl(45 80% 75%);
+
+  --medal-gold: hsl(45 70% 62%);
+  --medal-silver: hsl(220 10% 70%);
+  --medal-bronze: hsl(25 50% 62%);
+  --medal-text: hsl(30 40% 12%);
+
+  --shadow-soft: 0 4px 18px hsl(0 0% 0% / 0.3);
+  --shadow-hover: 0 8px 26px hsl(0 0% 0% / 0.4);
+}

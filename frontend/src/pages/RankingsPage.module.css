@@ -1,0 +1,14 @@
+.level {
+  margin-bottom: var(--space-6);
+}
+
+.scope {
+  max-width: 320px;
+  margin-bottom: var(--space-4);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr));
+  gap: var(--space-4);
+}

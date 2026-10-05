@@ -1,0 +1,246 @@
+/*
+ * Capa decorativa fija y estática detrás de todo. El contenido que va encima
+ * debe tener `position: relative; z-index: 1` (ver AppShell y PublicLayout).
+ *
+ * --offset-left corre las formas de la izquierda (dentro de la app, para que
+ * no queden escondidas tras la barra lateral).
+ *
+ * Varias formas usan `mask-image` con un degradado: así se desvanecen hacia
+ * un lado en vez de cortarse en seco.
+ */
+.decor {
+  --offset-left: 0px;
+
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+/* El usuario puede apagar las figuras en Apariencia (ver theme.ts e index.html) */
+:global(html[data-decor="off"]) .decor {
+  display: none;
+}
+
+/* Dentro de la app las formas se apagan hacia el centro, donde va el contenido */
+.app {
+  opacity: 0.8;
+  -webkit-mask-image: radial-gradient(ellipse 55% 50% at 58% 48%, rgb(0 0 0 / 0.25), #000 85%);
+  mask-image: radial-gradient(ellipse 55% 50% at 58% 48%, rgb(0 0 0 / 0.25), #000 85%);
+}
+
+.shape {
+  position: absolute;
+  display: block;
+}
+
+/* ---------- Profundidad ---------- */
+
+.meshTop {
+  top: -22vmax;
+  left: calc(var(--offset-left) + 10vw);
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-1) 0%, transparent 62%);
+}
+
+.meshBottom {
+  bottom: -26vmax;
+  right: -12vmax;
+  width: 58vmax;
+  height: 58vmax;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent-2) 0%, transparent 60%);
+}
+
+/* ---------- Textura ---------- */
+
+.dots {
+  top: 6vh;
+  right: 1vw;
+  width: 30vmax;
+  height: 24vmax;
+  background-image: radial-gradient(var(--color-primary-strong) 1.3px, transparent 1.8px);
+  background-size: 18px 18px;
+  opacity: 0.28;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 25%, transparent 72%);
+  mask-image: radial-gradient(ellipse at center, #000 25%, transparent 72%);
+}
+
+/* ---------- Arriba a la izquierda ---------- */
+
+.cornerArcs {
+  top: 0;
+  left: var(--offset-left);
+  width: 24vmax;
+  height: 24vmax;
+  fill: none;
+  stroke: var(--color-primary-strong);
+  stroke-width: 0.7;
+  opacity: 0.3;
+  /* Se desvanecen al alejarse de la esquina */
+  -webkit-mask-image: radial-gradient(circle at 0 0, #000 30%, transparent 95%);
+  mask-image: radial-gradient(circle at 0 0, #000 30%, transparent 95%);
+}
+
+/* ---------- Arriba a la derecha ---------- */
+
+.ring {
+  top: 14vh;
+  right: 7vw;
+  width: 20vmax;
+  height: 20vmax;
+  border-radius: 50%;
+  border: 2.2vmax solid var(--color-primary);
+  opacity: 0.55;
+  /* Más intenso arriba a la derecha, se apaga hacia abajo a la izquierda */
+  -webkit-mask-image: linear-gradient(210deg, #000 35%, transparent 95%);
+  mask-image: linear-gradient(210deg, #000 35%, transparent 95%);
+}
+
+/* Anillo fino, concéntrico al grueso */
+.ringThin {
+  top: calc(14vh - 2.6vmax);
+  right: calc(7vw - 2.6vmax);
+  width: 25.2vmax;
+  height: 25.2vmax;
+  border-radius: 50%;
+  border: 1.5px solid var(--color-primary-strong);
+  opacity: 0.35;
+}
+
+/* Órbita punteada, más amplia, con el mismo centro */
+.orbit {
+  top: calc(14vh - 7vmax);
+  right: calc(7vw - 7vmax);
+  width: 34vmax;
+  height: 34vmax;
+  border-radius: 50%;
+  border: 1.5px dashed var(--color-primary-strong);
+  opacity: 0.22;
+}
+
+/* "Planeta" sobre la órbita, arriba a la izquierda del centro */
+.planet {
+  top: calc(14vh - 2.8vmax);
+  right: calc(7vw + 21.2vmax);
+  width: 1.6vmax;
+  height: 1.6vmax;
+  border-radius: 50%;
+  background: var(--color-primary-strong);
+  opacity: 0.45;
+}
+
+.burst {
+  top: calc(14vh + 14.5vmax);
+  right: calc(7vw + 14.5vmax);
+  width: 8vmax;
+  height: 8vmax;
+  fill: var(--accent-3);
+}
+
+/* ---------- Lado derecho ---------- */
+
+.sparkles {
+  top: 62vh;
+  right: 16vw;
+  width: 5.5vmax;
+  height: 4.8vmax;
+  fill: var(--color-primary-strong);
+  opacity: 0.32;
+}
+
+/* ---------- Abajo a la izquierda ---------- */
+
+/* Medio círculo de rayas diagonales que se desvanece hacia arriba */
+.halfStriped {
+  bottom: 0;
+  left: calc(var(--offset-left) + 5vw - 5vmax);
+  width: 38vmax;
+  height: 19vmax;
+  border-radius: 19vmax 19vmax 0 0;
+  background: repeating-linear-gradient(
+    -45deg,
+    var(--color-primary-strong) 0 1.5px,
+    transparent 1.5px 12px
+  );
+  opacity: 0.2;
+  -webkit-mask-image: linear-gradient(to top, #000 20%, transparent 95%);
+  mask-image: linear-gradient(to top, #000 20%, transparent 95%);
+}
+
+.halfBig {
+  bottom: 0;
+  left: calc(var(--offset-left) + 5vw);
+  width: 28vmax;
+  height: 14vmax;
+  border-radius: 14vmax 14vmax 0 0;
+  background: linear-gradient(to top, var(--accent-1) 40%, color-mix(in srgb, var(--accent-1) 40%, transparent));
+}
+
+/* Medio círculo más chico, apoyado dentro del grande */
+.halfSmall {
+  bottom: 0;
+  left: calc(var(--offset-left) + 5vw + 7vmax);
+  width: 14vmax;
+  height: 7vmax;
+  border-radius: 7vmax 7vmax 0 0;
+  background: var(--color-primary);
+  opacity: 0.55;
+}
+
+/* ---------- Detalles ---------- */
+
+.dotFilled {
+  top: 32vh;
+  left: calc(var(--offset-left) + 30vw);
+  width: 3.4vmax;
+  height: 3.4vmax;
+  border-radius: 50%;
+  background: var(--accent-2);
+}
+
+.dotOutline {
+  top: calc(32vh - 3.2vmax);
+  left: calc(var(--offset-left) + 30vw + 4.2vmax);
+  width: 2.2vmax;
+  height: 2.2vmax;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary-strong);
+  opacity: 0.4;
+}
+
+/* ---------- Páginas públicas: algo más de color ---------- */
+
+.public .halfBig {
+  background: linear-gradient(to top, var(--accent-4) 40%, color-mix(in srgb, var(--accent-4) 40%, transparent));
+}
+
+.public .burst {
+  fill: var(--accent-5);
+}
+
+/* ---------- Dentro de la app ---------- */
+
+/* PC: las formas de la izquierda empiezan después de la barra lateral */
+@media (min-width: 901px) {
+  .app {
+    --offset-left: 252px;
+  }
+}
+
+/* Móvil: solo profundidad, el sistema de anillos y la trama, para no saturar la pantalla chica */
+@media (max-width: 900px) {
+  .app .halfBig,
+  .app .halfSmall,
+  .app .halfStriped,
+  .app .sparkles,
+  .app .cornerArcs,
+  .app .dotFilled,
+  .app .dotOutline,
+  .app .burst {
+    display: none;
+  }
+}

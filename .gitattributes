@@ -1,0 +1,13 @@
+# Saltos de línea normalizados (LF) en el repositorio, sin importar el sistema operativo.
+* text=auto eol=lf
+
+# Archivos binarios: no tocar.
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.ico binary
+*.ttf binary
+*.woff binary
+*.woff2 binary
