@@ -3,7 +3,7 @@ import { Link } from "react-router";
 import styles from "./Logo.module.css";
 
 /**
- * Isotipo de reta.cl: una "r" minúscula con un punto (el de ".cl").
+ * Isotipo de lareta.cl: una "r" minúscula con un punto (el de ".cl").
  * Toma los colores del tema (fondo = color principal).
  */
 export function LogoMark({ size = 38 }: { size?: number }) {
@@ -29,13 +29,13 @@ type LogoProps = {
   compactOnMobile?: boolean;
 };
 
-/** Isotipo + nombre "reta.cl". */
+/** Isotipo + nombre "lareta.cl". */
 export function Logo({ to, compactOnMobile = false }: LogoProps) {
   return (
-    <Link to={to} className={styles.logo} aria-label="reta.cl, ir al inicio">
+    <Link to={to} className={styles.logo} aria-label="lareta.cl, ir al inicio">
       <LogoMark />
       <span className={[styles.wordmark, compactOnMobile && styles.compactText].filter(Boolean).join(" ")}>
-        reta<span className={styles.tld}>.cl</span>
+        lareta<span className={styles.tld}>.cl</span>
       </span>
     </Link>
   );

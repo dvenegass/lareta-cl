@@ -1,4 +1,4 @@
-# reta.cl
+# lareta.cl
 
 App para organizar juntas con amigos. Backend en Django + DRF (PostgreSQL) y frontend en React + Vite + TypeScript.
 

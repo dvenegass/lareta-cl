@@ -1,7 +1,8 @@
 import { CalendarPlus, Clock, MapPin, Send, UserCheck, Users } from "lucide-react";
 
 import { LogoMark } from "../components/layout/Logo";
-import { ButtonLink } from "../components/ui/Button";import { APP_NAME } from "../config";
+import { ButtonLink } from "../components/ui/Button";
+import { APP_NAME } from "../config";
 import styles from "./LandingPage.module.css";
 
 const STEPS = [
