@@ -1,1 +1,1 @@
-export const APP_NAME = "reta.cl";
+export const APP_NAME = "lareta.cl";

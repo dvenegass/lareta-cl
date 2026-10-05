@@ -135,7 +135,7 @@ FRONTEND_URL = env("FRONTEND_URL", default="http://localhost:5173")
 # Envío de emails. Por defecto se imprimen en la consola de Django (desarrollo).
 # En producción: EMAIL_URL=smtp+tls://usuario:clave@smtp.servidor.com:587
 vars().update(env.email_url("EMAIL_URL", default="consolemail://"))
-DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default="reta.cl <no-reply@reta.cl>")
+DEFAULT_FROM_EMAIL = env("DEFAULT_FROM_EMAIL", default="lareta.cl <no-reply@lareta.cl>")
 
 # Los enlaces para restablecer la contraseña caducan en 1 hora.
 PASSWORD_RESET_TIMEOUT = 60 * 60

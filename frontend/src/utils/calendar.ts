@@ -29,7 +29,7 @@ export function googleCalendarUrl(event: CalendarEvent) {
     text: event.title,
     dates: `${start}/${end}`,
     location: event.location,
-    details: [event.description, `Junta en reta.cl: ${eventUrl(event.id)}`].filter(Boolean).join("\n\n"),
+    details: [event.description, `Junta en lareta.cl: ${eventUrl(event.id)}`].filter(Boolean).join("\n\n"),
   });
   return `https://calendar.google.com/calendar/render?${params}`;
 }
@@ -42,13 +42,13 @@ function icsText(text: string) {
 /** Descarga un .ics: sirve para el calendario del iPhone, Outlook, etc. */
 export function downloadIcs(event: CalendarEvent) {
   const { start, end } = range(event.starts_at);
-  const description = [event.description, `Junta en reta.cl: ${eventUrl(event.id)}`].filter(Boolean).join("\n\n");
+  const description = [event.description, `Junta en lareta.cl: ${eventUrl(event.id)}`].filter(Boolean).join("\n\n");
   const lines = [
     "BEGIN:VCALENDAR",
     "VERSION:2.0",
-    "PRODID:-//reta.cl//Juntas//ES",
+    "PRODID:-//lareta.cl//Juntas//ES",
     "BEGIN:VEVENT",
-    `UID:${event.id}@reta.cl`,
+    `UID:${event.id}@lareta.cl`,
     `DTSTAMP:${toCalendarDate(new Date())}`,
     `DTSTART:${start}`,
     `DTEND:${end}`,

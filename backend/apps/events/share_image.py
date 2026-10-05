@@ -1,6 +1,6 @@
 """
 Imagen de vista previa (1200×630) de una junta, para cuando se comparte el enlace
-en WhatsApp, Telegram, Discord, etc. Se dibuja con Pillow, en el estilo de reta.cl.
+en WhatsApp, Telegram, Discord, etc. Se dibuja con Pillow, en el estilo de lareta.cl.
 """
 
 from functools import lru_cache
@@ -91,7 +91,7 @@ def render_event_card(*, title: str, date_line: str, place_line: str, footer: st
     # Logo: isotipo + nombre
     draw.rounded_rectangle((130, 115, 190, 175), radius=18, fill=PRIMARY)
     draw.text((160, 143), "r.", font=_font(40, "bold"), fill=PRIMARY_TEXT, anchor="mm")
-    draw.text((208, 145), "reta.cl", font=_font(36, "bold"), fill=TEXT, anchor="lm")
+    draw.text((208, 145), "lareta.cl", font=_font(36, "bold"), fill=TEXT, anchor="lm")
 
     # Título (hasta 2 líneas)
     y = 215
@@ -106,7 +106,7 @@ def render_event_card(*, title: str, date_line: str, place_line: str, footer: st
     place = _wrap(draw, place_line, meta_font, max_width=930, max_lines=1)[0] if place_line else ""
     draw.text((130, y + 66), place, font=meta_font, fill=MUTED)
 
-    # Pie: "¿Vienes? Confirma en reta.cl"
+    # Pie: "¿Vienes? Confirma en lareta.cl"
     footer_font = _font(30)
     footer_width = int(draw.textlength(footer, font=footer_font))
     draw.rounded_rectangle((130, 470, 130 + footer_width + 48, 524), radius=27, fill=PRIMARY_SOFT)

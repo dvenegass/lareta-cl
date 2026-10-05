@@ -131,7 +131,7 @@ function SkeletonRowsInline() {
 /** Pantalla completa mientras se comprueba la sesión: el logo "respira". */
 export function AppLoader() {
   return (
-    <div className={styles.app} role="status" aria-label="Cargando reta.cl">
+    <div className={styles.app} role="status" aria-label="Cargando lareta.cl">
       <div className={styles.pulse}>
         <LogoMark size={56} />
       </div>

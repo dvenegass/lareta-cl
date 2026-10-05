@@ -30,10 +30,10 @@ def update_profile(*, user: User, **data) -> User:
 
 # ---------- Recuperar contraseña ----------
 
-RESET_EMAIL_SUBJECT = "Restablece tu contraseña de reta.cl"
+RESET_EMAIL_SUBJECT = "Restablece tu contraseña de lareta.cl"
 RESET_EMAIL_BODY = """Hola, {username}:
 
-Alguien (ojalá tú) pidió restablecer la contraseña de tu cuenta en reta.cl.
+Alguien (ojalá tú) pidió restablecer la contraseña de tu cuenta en lareta.cl.
 Para elegir una nueva, abre este enlace:
 
 {link}

@@ -61,7 +61,7 @@ class EventShareImageView(View):
             title=event.title,
             date_line=_date_line(event),
             place_line=event.location,
-            footer=f"{_going_line(event)} · ¿Vienes? Confirma en reta.cl",
+            footer=f"{_going_line(event)} · ¿Vienes? Confirma en lareta.cl",
         )
         response = HttpResponse(png, content_type="image/png")
         response["Cache-Control"] = "public, max-age=300"  # 5 min: se actualiza si cambia la junta
